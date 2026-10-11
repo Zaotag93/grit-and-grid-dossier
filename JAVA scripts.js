@@ -267,9 +267,14 @@ function rollDice(type) {
     if (output) {
         if (type === 'd100') {
             const units = result % 10;
-            output.innerText = `d100: ${result} (Notch: ${units})`;
+            // Only show the Notch warning if the units digit is 2, 3, or 4
+            if (units === 2 || units === 3 || units === 4) {
+                output.innerText = `d100: ${result} (Notch: ${units})`;
+            } else {
+                output.innerText = `d100: ${result}`;
+            }
         } else {
-            // For d10, just show the result without the Notch text
+            // For d10, just show the result
             output.innerText = `d10: ${result}`;
         }
     }
