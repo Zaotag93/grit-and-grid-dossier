@@ -262,7 +262,7 @@ function rollDice(type) {
     if (type === 'd10') result = Math.floor(Math.random() * 10) + 1;
     const units = result % 10;
     const output = document.getElementById('desktop_dice_result');
-    if (output) output.innerText = `${type}: ${result} (Units: ${units})`;
+    if (output) output.innerText = `${type}: ${result} (Damage/Notch: ${units})`;
 }
 
 // THE FULLY RESTORED EQUIPMENT AND RULES DICTIONARY
