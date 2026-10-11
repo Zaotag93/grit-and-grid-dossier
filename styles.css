@@ -1,5 +1,5 @@
 body {
-    background-color: #404040;
+    background-color: #2b2b2b;
     color: #ffffff;
     font-family: calibri, sans-serif;
     margin: 0;
@@ -12,7 +12,7 @@ img {
 
 select {
     width: 100%;
-    background-color: #191919;
+    background-color: #111;
     color: #ffffff;
     border: 1px solid #555;
     padding: 4px;
@@ -20,197 +20,23 @@ select {
 
 input, textarea {
     width: 100%;
-    background-color: #191919;
+    background-color: #111;
     border: 1px solid #555;
     color: #ffffff;
     padding: 4px;
 }
 
+input[type="checkbox"] {
+    width: auto !important;
+    cursor: pointer;
+    margin: 0;
+}
+
 button {
-    background-color: #191919;
+    background-color: #111;
     color: #ffffff;
     border: 1px solid #F26522;
     cursor: pointer;
-}
-
-.third {
-    width: 30%;
-}
-
-.highlight {
-    background-color: #F26522;
-}
-
-.warn {
-    border: 1px solid;
-    border-color: #F26522;
-}
-
-::placeholder {
-    color: #F26522;
-}
-
-.contentitem {
-    grid-area: ci;
-}
-
-.bugtype {
-    grid-area: bt;
-}
-
-.platform {
-    grid-area: pf;
-}
-
-.contentname {
-    grid-area: cn;
-}
-
-.shortsummary {
-    grid-area: ss;
-}
-
-.playfabtitle {
-    grid-area: pt;
-}
-
-.buildinfo {
-    grid-area: bi;
-}
-
-.shortdescription {
-    grid-area: sd;
-}
-
-.fullDesc {
-    grid-area: fd;
-    width: 100%;
-}
-
-.generate {
-    grid-area: gn;
-}
-
-.save {
-    grid-area: sv;
-}
-
-.regressions {
-    grid-area: regressions;
-}
-
-.regBr {
-    grid-area: rb;
-}
-
-.regEx {
-    grid-area: rx;
-}
-
-.clientAccount {
-    grid-area: ca;
-}
-
-.bugForm {
-    display: grid;
-    grid-gap: 1%;
-    grid-template-areas:
-        'ci bt bt'
-        'cn pt .'
-        'ss ss ss'
-        'bi bi bi'
-        'sd sd sd'
-        'fd fd fd'
-        'gn sv .';
-}
-
-.formContainer {
-    grid-area: bugForm;
-    max-width: 900px;
-    height: 100%;
-}
-
-.output {
-    grid-area: output;
-    font-family: calibri;
-    font-size: 15px;
-    padding: 1%;
-    padding-top: 2%;
-    background-color: #191919;
-    color: #FFFFFF;
-    line-height: 1.5;
-}
-
-.indexTemplate {
-    font-family: calibri;
-    font-size: 12px;
-    padding: 1%;
-    height: 20%;
-    background-color: #191919;
-    color: #ffffff;
-    width: 40%;
-}
-
-.regressionTemplate {
-    font-family: calibri;
-    font-size: 13px;
-    padding: 1%;
-    height: 20%;
-    background-color: #191919;
-    color: #ffffff;
-    width: 40%;
-}
-
-.mainGridContainer {
-    display: grid;
-    grid-gap: 3%;
-    grid-template-columns: 40% 40%;
-    grid-template-areas:
-        'bugForm output';
-}
-
-.glossaryArea {
-    display: grid;
-    grid-gap: 1%;
-    grid-template-areas:
-        'gl gp gd';
-}
-
-.glossContainer {
-    grid-area: glossaryArea;
-    max-width: 300px;
-    height: 100%;
-}
-
-.regressionBrEx {
-    grid-area: grid;
-    grid-gap: 1%;
-    grid-template-areas:
-        'ju rb rx'
-        'ca . .';
-}
-
-.regressPickContainer {
-    grid-area: regressionBrEx;
-    max-width: 300px;
-    height: 100%;
-}
-
-.hidden {
-    display: none;
-}
-
-.additional-info {
-    margin-top: 20px;
-    font-family: calibri;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.suggestions {
-    border: 1px solid #555;
-    background-color: #191919;
-    color: #ffffff;
 }
 
 /* Top Navigation Bar */
@@ -239,6 +65,11 @@ button {
     font-weight: bold;
 }
 
+.nav-group select {
+    font-weight: bold;
+    padding: 5px;
+}
+
 .action-btn {
     background: #222;
     color: #fff;
@@ -253,12 +84,13 @@ button {
     color: #000;
 }
 
-/* Sheet Sections & Tables */
+/* Sheet Sections & Headers */
 .sheet-section {
     background: #1e1e1e;
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #444;
+    color: #e0e0e0;
 }
 
 .sheet-row {
@@ -290,6 +122,7 @@ h3.section-header {
     margin-bottom: 10px;
 }
 
+/* Grids & Tables */
 .dossier-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
