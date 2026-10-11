@@ -255,12 +255,19 @@ function calcSkills() {
     });
 }
 
-// THE DICE ROLLER WIDGET LOGIC
+// CRYPTOGRAPHIC DICE ROLLER WIDGET LOGIC
 function rollDice(type) {
-    let result = 0;
-    if (type === 'd100') result = Math.floor(Math.random() * 100) + 1;
-    if (type === 'd10') result = Math.floor(Math.random() * 10) + 1;
+    // Generate a cryptographically secure random number
+    const randomBuffer = new Uint32Array(1);
+    window.crypto.getRandomValues(randomBuffer);
+    
+    // Determine the max die size
+    const max = (type === 'd100') ? 100 : 10;
+    
+    // Convert the massive random number to a die roll (1 to max)
+    const result = (randomBuffer[0] % max) + 1;
     const units = result % 10;
+    
     const output = document.getElementById('desktop_dice_result');
     if (output) output.innerText = `${type}: ${result} (Damage/Notch: ${units})`;
 }
