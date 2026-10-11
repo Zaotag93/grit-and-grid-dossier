@@ -9,11 +9,11 @@
 <body>
     <h1 style="color:white; margin-bottom: 5px;">Grit & Grid: Clerk's Register</h1>
     
-    <!-- TOP NAVIGATION BAR -->
+<!-- TOP NAVIGATION BAR -->
     <div class="top-nav">
         <div class="nav-group">
             <label>LEFT SCREEN:</label>
-            <select id="leftPaneSelect" onchange="updatePanes('left')">
+            <select id="leftPaneSelect" onchange="updatePanes('left')" style="width: auto;">
                 <option value="p1" selected>Dossier Page 1: Stats & Skills</option>
                 <option value="p2">Dossier Page 2: Inventory & Magic</option>
                 <option value="ref">Store & Rules Database</option>
@@ -25,11 +25,12 @@
             <label style="color:#F26522;">DICE:</label>
             <button type="button" class="action-btn" onclick="rollDice('d100')">Roll d100</button>
             <button type="button" class="action-btn" onclick="rollDice('d10')">Roll d10</button>
-            <span id="desktop_dice_result" style="display: inline-block; min-width: 220px; font-family: monospace; font-size: 13px; color: #fff; margin-left: 5px;">Ready</span>
+            <span id="desktop_dice_result" style="display: inline-block; width: 225px; font-family: monospace; font-size: 13px; color: #fff; margin-left: 5px;">Ready</span>
+        </div>
         
         <div class="nav-group" style="border-left: 1px solid #555; border-right: 1px solid #555; padding: 0 15px;">
             <label>ROSTER:</label>
-            <select id="charSlotSelect" onchange="switchCharacterSlot()">
+            <select id="charSlotSelect" onchange="switchCharacterSlot()" style="width: auto; max-width: 180px;">
                 <optgroup label="Primary Vanguard">
                     <option value="char1">Active Contractor</option>
                 </optgroup>
@@ -58,7 +59,7 @@
 
         <div class="nav-group">
             <label>RIGHT SCREEN:</label>
-            <select id="rightPaneSelect" onchange="updatePanes('right')">
+            <select id="rightPaneSelect" onchange="updatePanes('right')" style="width: auto;">
                 <option value="p1">Dossier Page 1: Stats & Skills</option>
                 <option value="p2" selected>Dossier Page 2: Inventory & Magic</option>
                 <option value="ref">Store & Rules Database</option>
