@@ -27,8 +27,8 @@
             <button type="button" class="action-btn" onclick="rollDice('d10')">Roll d10</button>
             <span id="desktop_dice_result" style="font-family: monospace; font-size: 13px; color: #fff; margin-left: 5px;">Ready</span>
         </div>
-
-        <div class="nav-group" style="border-left: 1px solid #555; border-right: 1px solid #555; padding: 0 10px;">
+        
+        <div class="nav-group" style="border-left: 1px solid #555; border-right: 1px solid #555; padding: 0 15px;">
             <label>ROSTER:</label>
             <select id="charSlotSelect" onchange="switchCharacterSlot()">
                 <optgroup label="Primary Vanguard">
@@ -51,7 +51,7 @@
                 </optgroup>
             </select>
             <button type="button" class="action-btn" onclick="saveCharacterSlot()">Save</button>
-            <button type="button" class="action-btn" onclick="setAsActive()">Active</button>
+            <button type="button" class="action-btn" onclick="setAsActive()">Set Active</button>
             <button type="button" class="action-btn" onclick="backupCharacter()">Backup</button>
             <button type="button" class="action-btn" onclick="archiveCharacter()">Archive</button>
             <button type="button" class="action-btn" onclick="createNewCharacterSlot()">Clear</button>
@@ -69,7 +69,8 @@
 
     <!-- MAIN TWO-PANE LAYOUT -->
     <div class="dossier-layout" id="mainLayout">
-        <!-- PANE 1 -->
+        
+        <!-- PANE 1: STATS, SKILLS, RELICS & PATHOLOGY -->
         <div id="pane_p1" class="pane">
             <div class="sheet-section">
                 <h2 class="dossier-title">Contractor Dossier</h2>
@@ -108,6 +109,7 @@
                     <label>Max HP:</label> <input id="char_maxHp" type="number" style="width:40px;" value="8">
                 </div>
 
+                <!-- Core Capabilities -->
                 <h3 class="section-header">Core Capabilities (Roll-Under d100)</h3>
                 <div class="dossier-grid">
                     <table class="dossier-table">
@@ -124,39 +126,42 @@
                     </table>
                 </div>
 
+                <!-- Vocational Skills -->
                 <h3 class="section-header">Vocational Skills (Base + Bonus = Total)</h3>
                 <div class="dossier-grid">
                     <table class="dossier-table">
                         <tr><th>Vanguard Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Close-Quarter Combat [STR]</td><td class="skill-calc">[<span id="b_cqc">30</span>] + [<input id="bon_cqc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_cqc">30</span>%</td></tr>
-                        <tr><td>Shield Deflection [DEX]</td><td class="skill-calc">[<span id="b_shi">30</span>] + [<input id="bon_shi" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_shi">30</span>%</td></tr>
-                        <tr><td>Heavy Armor Tolerance [CON]</td><td class="skill-calc">[<span id="b_arm">30</span>] + [<input id="bon_arm" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arm">30</span>%</td></tr>
-                        <tr><td>Ranged Precision [DEX]</td><td class="skill-calc">[<span id="b_ran">30</span>] + [<input id="bon_ran" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_ran">30</span>%</td></tr>
+                        <tr><td>Close-Quarter Combat [STR]</td><td class="skill-calc">[<span id="b_cqc">30</span>] + [<input id="bon_cqc" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_cqc">30</span>%</td></tr>
+                        <tr><td>Shield Deflection [DEX]</td><td class="skill-calc">[<span id="b_shi">30</span>] + [<input id="bon_shi" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_shi">30</span>%</td></tr>
+                        <tr><td>Heavy Armor Tolerance [CON]</td><td class="skill-calc">[<span id="b_arm">30</span>] + [<input id="bon_arm" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arm">30</span>%</td></tr>
+                        <tr><td>Ranged Precision [DEX]</td><td class="skill-calc">[<span id="b_ran">30</span>] + [<input id="bon_ran" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_ran">30</span>%</td></tr>
                         
                         <tr><th>Sanctified Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Faith & Clerical Arms [STR]</td><td class="skill-calc">[<span id="b_fai">30</span>] + [<input id="bon_fai" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_fai">30</span>%</td></tr>
-                        <tr><td>Alchemical Medicine [INT]</td><td class="skill-calc">[<span id="b_med">30</span>] + [<input id="bon_med" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_med">30</span>%</td></tr>
-                        <tr><td>Congregational Resolve [WIS]</td><td class="skill-calc">[<span id="b_res">30</span>] + [<input id="bon_res" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_res">30</span>%</td></tr>
-                        <tr><td>Void Pathology [INT]</td><td class="skill-calc">[<span id="b_voi">30</span>] + [<input id="bon_voi" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_voi">30</span>%</td></tr>
+                        <tr><td>Faith & Clerical Arms [STR]</td><td class="skill-calc">[<span id="b_fai">30</span>] + [<input id="bon_fai" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_fai">30</span>%</td></tr>
+                        <tr><td>Alchemical Medicine [INT]</td><td class="skill-calc">[<span id="b_med">30</span>] + [<input id="bon_med" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_med">30</span>%</td></tr>
+                        <tr><td>Congregational Resolve [WIS]</td><td class="skill-calc">[<span id="b_res">30</span>] + [<input id="bon_res" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_res">30</span>%</td></tr>
+                        <tr><td>Void Pathology [INT]</td><td class="skill-calc">[<span id="b_voi">30</span>] + [<input id="bon_voi" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_voi">30</span>%</td></tr>
                     </table>
                     <table class="dossier-table">
                         <tr><th>Infiltration Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Trap & Hazard Sensing [WIS]</td><td class="skill-calc">[<span id="b_tra">30</span>] + [<input id="bon_tra" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_tra">30</span>%</td></tr>
-                        <tr><td>Lock & Mech. Handling [DEX]</td><td class="skill-calc">[<span id="b_loc">30</span>] + [<input id="bon_loc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_loc">30</span>%</td></tr>
-                        <tr><td>Sneak & Infiltrate [DEX]</td><td class="skill-calc">[<span id="b_sne">30</span>] + [<input id="bon_sne" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_sne">30</span>%</td></tr>
-                        <tr><td>Wilderness Tracking [WIS]</td><td class="skill-calc">[<span id="b_trk">30</span>] + [<input id="bon_trk" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_trk">30</span>%</td></tr>
+                        <tr><td>Trap & Hazard Sensing [WIS]</td><td class="skill-calc">[<span id="b_tra">30</span>] + [<input id="bon_tra" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_tra">30</span>%</td></tr>
+                        <tr><td>Lock & Mech. Handling [DEX]</td><td class="skill-calc">[<span id="b_loc">30</span>] + [<input id="bon_loc" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_loc">30</span>%</td></tr>
+                        <tr><td>Sneak & Infiltrate [DEX]</td><td class="skill-calc">[<span id="b_sne">30</span>] + [<input id="bon_sne" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_sne">30</span>%</td></tr>
+                        <tr><td>Wilderness Tracking [WIS]</td><td class="skill-calc">[<span id="b_trk">30</span>] + [<input id="bon_trk" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_trk">30</span>%</td></tr>
                         
                         <tr><th>Arcane Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Arcane Channeling [WIS]</td><td class="skill-calc">[<span id="b_arc">30</span>] + [<input id="bon_arc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arc">30</span>%</td></tr>
-                        <tr><td>Scroll Transcription [INT]</td><td class="skill-calc">[<span id="b_scr">30</span>] + [<input id="bon_scr" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_scr">30</span>%</td></tr>
-                        <tr><td>Staff Deflection [DEX]</td><td class="skill-calc">[<span id="b_stf">30</span>] + [<input id="bon_stf" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_stf">30</span>%</td></tr>
-                        <tr><td>Artifact Appraisal [INT]</td><td class="skill-calc">[<span id="b_app">30</span>] + [<input id="bon_app" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_app">30</span>%</td></tr>
+                        <tr><td>Arcane Channeling [WIS]</td><td class="skill-calc">[<span id="b_arc">30</span>] + [<input id="bon_arc" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arc">30</span>%</td></tr>
+                        <tr><td>Scroll Transcription [INT]</td><td class="skill-calc">[<span id="b_scr">30</span>] + [<input id="bon_scr" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_scr">30</span>%</td></tr>
+                        <tr><td>Staff Deflection [DEX]</td><td class="skill-calc">[<span id="b_stf">30</span>] + [<input id="bon_stf" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_stf">30</span>%</td></tr>
+                        <tr><td>Artifact Appraisal [INT]</td><td class="skill-calc">[<span id="b_app">30</span>] + [<input id="bon_app" type="number" style="width:45px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_app">30</span>%</td></tr>
                     </table>
                 </div>
 
+                <!-- Combat & Attrition Log -->
                 <h3 class="section-header">Combat & Attrition Log</h3>
                 <div class="attrition-log">
                     • <b>Attack:</b> Roll under skill. Damage: Units Digit of a successful roll.<br>
+                    • <b>Critical:</b> Max Damage + Armor Sunder to target.<br>
                     • <b>Wear Tax:</b> If units digit is 2, 3, or 4, weapon takes a Notch (-1 Max Damage).
                 </div>
                 <table class="dossier-table">
@@ -166,20 +171,128 @@
                     <tr><td>3. <input id="wp3_n" style="width:80%;"></td><td>[ <input id="wp3_d" style="width:30px;"> ]</td><td><div class="horizontal-checks">[<input type="checkbox" id="wp3_c1">] [<input type="checkbox" id="wp3_c2">] [<input type="checkbox" id="wp3_c3">] (Broken)</div></td></tr>
                 </table>
 
+                <!-- Relics & Armor -->
+                <h3 class="section-header" style="margin-bottom: 4px;">Equipped Relics & Artifacts</h3>
+                <table class="dossier-table">
+                    <tr><th style="width: 30%;">Relic Name</th><th>Worn Location</th><th>Active Effect / Curse</th></tr>
+                    <tr><td>1. <input id="rel1_n" style="width:80%;"></td><td><input id="rel1_l" style="width:90%;"></td><td><input id="rel1_e" style="width:95%;"></td></tr>
+                    <tr><td>2. <input id="rel2_n" style="width:80%;"></td><td><input id="rel2_l" style="width:90%;"></td><td><input id="rel2_e" style="width:95%;"></td></tr>
+                </table>
+
+                <table class="dossier-table" style="margin-top: 10px;">
+                    <tr><th style="width: 40%;">Armor Suite</th><th>Base DR</th><th>Sundered (-1 DR each)</th></tr>
+                    <tr><td>Armor: <input id="arm_n" style="width:60%;"></td><td>[ <input id="arm_d" style="width:30px;"> ]</td><td><div class="horizontal-checks">[<input type="checkbox" id="arm_c1">] [<input type="checkbox" id="arm_c2">] [<input type="checkbox" id="arm_c3">] (Destroyed)</div></td></tr>
+                    <tr><td>Shield: <input id="shd_n" style="width:60%;"></td><td>[ <input id="shd_d" style="width:30px;"> ]</td><td><div class="horizontal-checks">[<input type="checkbox" id="shd_c1">] [<input type="checkbox" id="shd_c2">] [<input type="checkbox" id="shd_c3">] (Destroyed)</div></td></tr>
+                </table>
+                <div style="font-weight: bold; margin-bottom: 15px;">Total Current DR: [ <input id="total_dr" type="number" style="width:40px;"> ]</div>
+
+                <!-- Pathology -->
                 <h3 class="section-header">Pathology & Strain</h3>
                 <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                    <input type="checkbox" id="path_inf"> <label for="path_inf" class="chk-label"><b style="color:#F26522;">INFECTION:</b> No natural healing, lose 1 HP daily.</label>
+                    <input type="checkbox" id="path_inf">
+                    <label for="path_inf" class="chk-label"><b style="color:#F26522;">INFECTION (Filth-Blade/Water):</b> No natural healing, lose 1 HP daily at dawn.</label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <input type="checkbox" id="path_cog">
+                    <label for="path_cog" class="chk-label"><b style="color:#F26522;">COGNITIVE STRAIN (Magic):</b> -20% to all checks, -2 DR, half move speed.</label>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                    <input type="checkbox" id="path_bli">
+                    <label for="path_bli" class="chk-label"><b style="color:#F26522;">BLINDED (Lost Light Source):</b> -20% physical checks, enemies gain +20% accuracy.</label>
                 </div>
             </div>
         </div>
 
-        <!-- PANE 2 -->
+        <!-- PANE 2: INVENTORY & MAGIC -->
         <div id="pane_p2" class="pane">
             <div class="sheet-section">
+                <!-- Grimoire -->
                 <h3 class="section-header" style="margin-top:0;">Grimoire & Sacred Manifest</h3>
                 <div class="sheet-row">
-                    <label>Max Spell Capacity:</label> <input id="spl_max" type="number" style="width:40px;">
+                    <label>Max Spell Capacity (Daily Slots):</label> <input id="spl_max" type="number" style="width:40px;">
+                    <label>Available Slots:</label> 
+                    <div class="horizontal-checks">
+                        [<input type="checkbox" id="sp_s1">] [<input type="checkbox" id="sp_s2">] [<input type="checkbox" id="sp_s3">]
+                        [<input type="checkbox" id="sp_s4">] [<input type="checkbox" id="sp_s5">] [<input type="checkbox" id="sp_s6">]
+                        [<input type="checkbox" id="sp_s7">] [<input type="checkbox" id="sp_s8">]
+                    </div>
                 </div>
+                
+                <b style="color:#ccc;">Cantrips & Minor Rites (8 Slots):</b>
+                <table class="dossier-table">
+                    <tr><th style="width: 5%;">#</th><th style="width: 30%;">Spell Name</th><th style="width: 25%;">Format</th><th>Effect / Notes</th></tr>
+                    <script>
+                        for(let i=1; i<=8; i++) {
+                            document.write(`<tr><td>${i}.</td><td><input id="can${i}_n" style="width:90%;"></td><td><input id="can${i}_f" style="width:90%;"></td><td><input id="can${i}_e" style="width:95%;"></td></tr>`);
+                        }
+                    </script>
+                </table>
+
+                <div class="sheet-row" style="margin-top:15px;">
+                    <label style="color:#F26522; font-size: 16px;">Master Spell Library:</label>
+                    <select id="grimoire_type" onchange="toggleGrimoireSize()" style="flex:2;">
+                        <option value="10">Traveling Folio (10 Pages)</option>
+                        <option value="30">Arcane Grimoire (30 Pages)</option>
+                    </select>
+                </div>
+                <table class="dossier-table" id="masterSpellTable">
+                    <tr><th style="width: 5%;">Slot</th><th style="width: 10%;">Level</th><th style="width: 30%;">Spell / Rite Name</th><th style="width: 15%;">Pages</th><th>Source / Notes</th></tr>
+                    <script>
+                        for(let i=1; i<=30; i++) {
+                            document.write(`<tr id="grim_row_${i}"><td>${i}.</td><td><input id="lib${i}_l" style="width:80%;"></td><td><input id="lib${i}_n" style="width:90%;"></td><td><input id="lib${i}_p" style="width:80%;"></td><td><input id="lib${i}_s" style="width:95%;"></td></tr>`);
+                        }
+                    </script>
+                </table>
+
+                <!-- Logistics & Inventory -->
+                <h3 class="section-header">Logistics & Inventory</h3>
+                <div class="sheet-row">
+                    <label>Corporate Wealth (gp):</label> <input id="inv_gold" type="number" style="width:80px;" value="20">
+                </div>
+
+                <div class="backpack-panel">
+                    <div class="sheet-row">
+                        <label>Backpack Type:</label>
+                        <select id="inv_backpack" onchange="toggleMasterBackpack()">
+                            <option value="Normal">Basic Canvas Backpack (12 Slots)</option>
+                            <option value="Master">Master-Grade Backpack (120 sp) [Unlocks Attachments]</option>
+                        </select>
+                    </div>
+                    <div id="masterBackpackAttachments" style="display: none; border-top: 1px dashed #555; padding-top: 8px; margin-top: 8px;">
+                        <div class="sheet-row">
+                            <label style="color:#F26522;">Attachment 1:</label>
+                            <select id="inv_attach1" onchange="updateBackpackNotes()">
+                                <option value="None">None</option>
+                                <option value="Exterior Cargo Loops">Exterior Cargo Loops</option>
+                                <option value="Sconce Rig">Sconce Rig</option>
+                                <option value="Iron-Plate Baffle">Iron-Plate Baffle</option>
+                                <option value="Oiled-Hide Water-Seal">Oiled-Hide Water-Seal</option>
+                                <option value="Quiver-Latch">Quiver-Latch & Scabbard Mount</option>
+                                <option value="Apothecary Tray">Apothecary Tray</option>
+                                <option value="Bedroll & Camp Sling">Bedroll & Camp Sling</option>
+                                <option value="Drop-Away Release">Drop-Away Emergency Release</option>
+                                <option value="Signal-Bell">Signal-Bell & Tripwire Rig</option>
+                                <option value="Scavenger Hook">Scavenger's Gut-Hook & Tarp</option>
+                            </select>
+                            <label style="color:#F26522; margin-left:10px;">Attachment 2:</label>
+                            <select id="inv_attach2" onchange="updateBackpackNotes()">
+                                <option value="None">None</option>
+                                <option value="Exterior Cargo Loops">Exterior Cargo Loops</option>
+                                <option value="Sconce Rig">Sconce Rig</option>
+                                <option value="Iron-Plate Baffle">Iron-Plate Baffle</option>
+                                <option value="Oiled-Hide Water-Seal">Oiled-Hide Water-Seal</option>
+                                <option value="Quiver-Latch">Quiver-Latch & Scabbard Mount</option>
+                                <option value="Apothecary Tray">Apothecary Tray</option>
+                                <option value="Bedroll & Camp Sling">Bedroll & Camp Sling</option>
+                                <option value="Drop-Away Release">Drop-Away Emergency Release</option>
+                                <option value="Signal-Bell">Signal-Bell & Tripwire Rig</option>
+                                <option value="Scavenger Hook">Scavenger's Gut-Hook & Tarp</option>
+                            </select>
+                        </div>
+                        <textarea id="backpack_notes" readonly rows="4" style="width:100%; margin-top:5px; font-size:12px; color:#ccc; background:#111; border:1px solid #444;" placeholder="Attachment rules will appear here..."></textarea>
+                    </div>
+                </div>
+
                 <table class="dossier-table" style="width: 100%;">
                     <tr><th style="width: 10%;">Slot</th><th>Item Name</th></tr>
                     <script>
@@ -191,19 +304,20 @@
             </div>
         </div>
 
-        <!-- PANE REF -->
+        <!-- PANE 3: REFERENCE -->
         <div id="pane_ref" class="pane">
             <div class="sheet-section">
                 <h2 class="dossier-title">Equipment & Rules Database</h2>
                 <div class="sheet-row" style="background: #111; padding: 10px; border: 1px solid #555;">
-                    <select id="ref_categorySelect" onchange="showRefCategory()" style="font-weight:bold;">
+                    <label style="color:#F26522; font-size: 16px;">Select Category:</label>
+                    <select id="ref_categorySelect" onchange="showRefCategory()" style="flex:2; font-weight:bold;">
                         <option value="glossary">Glossary & Quick Rules</option>
                         <option value="melee">Melee Armory</option>
                         <option value="ranged">Ranged Armory & Ammo</option>
                         <option value="armor">Armor & Deflection</option>
                         <option value="shields">Shields & Wards</option>
                         <option value="logistics">Expedient Logistics</option>
-                        <option value="backpack">Backpack Attachments</option>
+                        <option value="backpack">Master Backpack Attachments</option>
                         <option value="arcane">Arcane Grimoire (Spells)</option>
                         <option value="divine">Sanctified Manifest (Prayers)</option>
                     </select>
@@ -211,6 +325,7 @@
                 <div id="store_container" style="margin-top: 15px;"></div>
             </div>
         </div>
+
     </div>
 
     <script src="JAVA scripts.js"></script>
