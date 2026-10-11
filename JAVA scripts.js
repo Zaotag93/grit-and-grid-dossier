@@ -261,12 +261,18 @@ function rollDice(type) {
     window.crypto.getRandomValues(randomBuffer);
     
     const max = (type === 'd100') ? 100 : 10;
-    
     const result = (randomBuffer[0] % max) + 1;
-    const units = result % 10;
     
     const output = document.getElementById('desktop_dice_result');
-    if (output) output.innerText = `${type}: ${result} (Damage/Notch: ${units})`;
+    if (output) {
+        if (type === 'd100') {
+            const units = result % 10;
+            output.innerText = `d100: ${result} (Notch: ${units})`;
+        } else {
+            // For d10, just show the result without the Notch text
+            output.innerText = `d10: ${result}`;
+        }
+    }
 }
 
 // THE FULLY RESTORED EQUIPMENT AND RULES DICTIONARY
