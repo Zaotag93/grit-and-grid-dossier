@@ -297,6 +297,7 @@ function showRefCategory() {
             <tr><td><b>Subdual Damage</b></td><td>Non-lethal drain. Reaching 0 HP drops contractor unconscious for 3 rounds, waking with Lethargy (-20% move/checks).</td></tr>
             <tr><td><b>Infection</b></td><td>Failed CON check vs filth. No natural healing, lose 1 HP daily. Needs Antidote.</td></tr>
             <tr><td><b>Cognitive Strain</b></td><td>Migraine from magic fail. -20% all checks, -2 AC DR, half speed. Needs 4 hours rest.</td></tr>
+            <tr><td><b>Critical Hit</b></td><td>Auto-deals weapon's Max Damage. Applies Armor Sunder to target, permanently reducing their AC (DR) by 1.</td></tr>
         </table>`;
     }
     else if (cat.value === 'melee') {
@@ -347,7 +348,7 @@ function showRefCategory() {
         <table class="store-table">
             <tr><th>Rank Gate</th><th>Shield Type</th><th>Cost</th><th>Splinter Threshold & Function</th></tr>
             <tr><td>10</td><td>Reinforced Buckler</td><td>20 gp</td><td>Splinters if hit exceeds 3 dmg</td></tr>
-            <tr><td>10</td><td>Spiked Punching</td><td>35 gp</td><td>Functions as weapon (Max 4). Splinters > 4 dmg</td></tr>
+            <tr><td>10</td><td>Spiked Punching</td><td>35 gp</td><td>Functions as weapon (Max 4). Splinters > 4 dmg, degrading into a Fist-Blade / Cestus.</td></tr>
             <tr><td>10</td><td>Wooden Target</td><td>15 gp</td><td>Splinters if hit exceeds 5 dmg</td></tr>
             <tr><td>8</td><td>Vanguard Tower</td><td>75 gp</td><td>Massive front cover. Splinters > 12 dmg. Flammable.</td></tr>
             <tr><td>5</td><td>Iron Tower Shield</td><td>120 gp</td><td>Indestructible Bulwark (> 16 dmg). -10% to all Dodge checks.</td></tr>
