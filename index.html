@@ -111,9 +111,7 @@
     <!-- MAIN TWO-PANE LAYOUT -->
     <div class="dossier-layout" id="mainLayout">
         
-        <!-- ========================================== -->
-        <!-- PANE 1: STATS, SKILLS, RELICS & PATHOLOGY  -->
-        <!-- ========================================== -->
+        <!-- PANE 1: STATS, SKILLS, RELICS & PATHOLOGY -->
         <div id="pane_p1" class="pane">
             <div class="sheet-section">
                 <h2 class="dossier-title">Contractor Dossier</h2>
@@ -174,29 +172,29 @@
                 <div class="dossier-grid">
                     <table class="dossier-table">
                         <tr><th>Vanguard Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Close-Quarter Combat</td><td class="skill-calc">[<span id="b_cqc">30</span>] + [<input id="bon_cqc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_cqc">30</span>%</td></tr>
-                        <tr><td>Shield Deflection</td><td class="skill-calc">[<span id="b_shi">30</span>] + [<input id="bon_shi" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_shi">30</span>%</td></tr>
-                        <tr><td>Heavy Armor Tolerance</td><td class="skill-calc">[<span id="b_arm">30</span>] + [<input id="bon_arm" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arm">30</span>%</td></tr>
-                        <tr><td>Ranged Precision</td><td class="skill-calc">[<span id="b_ran">30</span>] + [<input id="bon_ran" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_ran">30</span>%</td></tr>
+                        <tr><td>Close-Quarter Combat [STR]</td><td class="skill-calc">[<span id="b_cqc">30</span>] + [<input id="bon_cqc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_cqc">30</span>%</td></tr>
+                        <tr><td>Shield Deflection [DEX]</td><td class="skill-calc">[<span id="b_shi">30</span>] + [<input id="bon_shi" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_shi">30</span>%</td></tr>
+                        <tr><td>Heavy Armor Tolerance [CON]</td><td class="skill-calc">[<span id="b_arm">30</span>] + [<input id="bon_arm" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arm">30</span>%</td></tr>
+                        <tr><td>Ranged Precision [DEX]</td><td class="skill-calc">[<span id="b_ran">30</span>] + [<input id="bon_ran" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_ran">30</span>%</td></tr>
                         
                         <tr><th>Sanctified Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Faith & Clerical Arms</td><td class="skill-calc">[<span id="b_fai">30</span>] + [<input id="bon_fai" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_fai">30</span>%</td></tr>
-                        <tr><td>Alchemical Medicine</td><td class="skill-calc">[<span id="b_med">30</span>] + [<input id="bon_med" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_med">30</span>%</td></tr>
-                        <tr><td>Congregational Resolve</td><td class="skill-calc">[<span id="b_res">30</span>] + [<input id="bon_res" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_res">30</span>%</td></tr>
-                        <tr><td>Void Pathology</td><td class="skill-calc">[<span id="b_voi">30</span>] + [<input id="bon_voi" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_voi">30</span>%</td></tr>
+                        <tr><td>Faith & Clerical Arms [STR]</td><td class="skill-calc">[<span id="b_fai">30</span>] + [<input id="bon_fai" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_fai">30</span>%</td></tr>
+                        <tr><td>Alchemical Medicine [INT]</td><td class="skill-calc">[<span id="b_med">30</span>] + [<input id="bon_med" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_med">30</span>%</td></tr>
+                        <tr><td>Congregational Resolve [WIS]</td><td class="skill-calc">[<span id="b_res">30</span>] + [<input id="bon_res" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_res">30</span>%</td></tr>
+                        <tr><td>Void Pathology [INT]</td><td class="skill-calc">[<span id="b_voi">30</span>] + [<input id="bon_voi" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_voi">30</span>%</td></tr>
                     </table>
                     <table class="dossier-table">
                         <tr><th>Infiltration Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Trap & Hazard Sensing</td><td class="skill-calc">[<span id="b_tra">30</span>] + [<input id="bon_tra" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_tra">30</span>%</td></tr>
-                        <tr><td>Lock & Mech. Handling</td><td class="skill-calc">[<span id="b_loc">30</span>] + [<input id="bon_loc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_loc">30</span>%</td></tr>
-                        <tr><td>Sneak & Infiltrate</td><td class="skill-calc">[<span id="b_sne">30</span>] + [<input id="bon_sne" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_sne">30</span>%</td></tr>
-                        <tr><td>Wilderness Tracking</td><td class="skill-calc">[<span id="b_trk">30</span>] + [<input id="bon_trk" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_trk">30</span>%</td></tr>
+                        <tr><td>Trap & Hazard Sensing [WIS]</td><td class="skill-calc">[<span id="b_tra">30</span>] + [<input id="bon_tra" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_tra">30</span>%</td></tr>
+                        <tr><td>Lock & Mech. Handling [DEX]</td><td class="skill-calc">[<span id="b_loc">30</span>] + [<input id="bon_loc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_loc">30</span>%</td></tr>
+                        <tr><td>Sneak & Infiltrate [DEX]</td><td class="skill-calc">[<span id="b_sne">30</span>] + [<input id="bon_sne" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_sne">30</span>%</td></tr>
+                        <tr><td>Wilderness Tracking [WIS]</td><td class="skill-calc">[<span id="b_trk">30</span>] + [<input id="bon_trk" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_trk">30</span>%</td></tr>
                         
                         <tr><th>Arcane Suite</th><th>Base + Bonus = Total</th></tr>
-                        <tr><td>Arcane Channeling</td><td class="skill-calc">[<span id="b_arc">30</span>] + [<input id="bon_arc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arc">30</span>%</td></tr>
-                        <tr><td>Scroll Transcription</td><td class="skill-calc">[<span id="b_scr">30</span>] + [<input id="bon_scr" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_scr">30</span>%</td></tr>
-                        <tr><td>Staff Deflection</td><td class="skill-calc">[<span id="b_stf">30</span>] + [<input id="bon_stf" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_stf">30</span>%</td></tr>
-                        <tr><td>Artifact Appraisal</td><td class="skill-calc">[<span id="b_app">30</span>] + [<input id="bon_app" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_app">30</span>%</td></tr>
+                        <tr><td>Arcane Channeling [WIS]</td><td class="skill-calc">[<span id="b_arc">30</span>] + [<input id="bon_arc" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_arc">30</span>%</td></tr>
+                        <tr><td>Scroll Transcription [INT]</td><td class="skill-calc">[<span id="b_scr">30</span>] + [<input id="bon_scr" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_scr">30</span>%</td></tr>
+                        <tr><td>Staff Deflection [DEX]</td><td class="skill-calc">[<span id="b_stf">30</span>] + [<input id="bon_stf" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_stf">30</span>%</td></tr>
+                        <tr><td>Artifact Appraisal [INT]</td><td class="skill-calc">[<span id="b_app">30</span>] + [<input id="bon_app" type="number" style="width:30px;" value="0" oninput="calcSkills()">] = <span class="skill-total" id="t_app">30</span>%</td></tr>
                     </table>
                 </div>
 
@@ -214,15 +212,7 @@
                     <tr><td>3. <input id="wp3_n" style="width:80%;"></td><td>[ <input id="wp3_d" style="width:30px;"> ]</td><td><div class="horizontal-checks">[<input type="checkbox" id="wp3_c1">] [<input type="checkbox" id="wp3_c2">] [<input type="checkbox" id="wp3_c3">] (Broken)</div></td></tr>
                 </table>
 
-                <!-- Relics & Armor -->
-                <h3 class="section-header" style="margin-bottom: 4px;">Equipped Relics & Artifacts</h3>
-                <div class="attrition-log" style="font-style: italic; margin-bottom: 10px;">Limit 2 active relics at a time. Must be worn or carried in hand to function.</div>
-                <table class="dossier-table">
-                    <tr><th style="width: 30%;">Relic Name</th><th>Worn Location</th><th>Active Effect / Curse</th></tr>
-                    <tr><td>1. <input id="rel1_n" style="width:80%;"></td><td><input id="rel1_l" style="width:90%;"></td><td><input id="rel1_e" style="width:95%;"></td></tr>
-                    <tr><td>2. <input id="rel2_n" style="width:80%;"></td><td><input id="rel2_l" style="width:90%;"></td><td><input id="rel2_e" style="width:95%;"></td></tr>
-                </table>
-
+                <!-- Armor Suite -->
                 <table class="dossier-table" style="margin-top: 10px;">
                     <tr><th style="width: 40%;">Armor Suite</th><th>Base DR</th><th>Sundered (-1 DR each)</th></tr>
                     <tr><td>Armor: <input id="arm_n" style="width:60%;"></td><td>[ <input id="arm_d" style="width:30px;"> ]</td><td><div class="horizontal-checks">[<input type="checkbox" id="arm_c1">] [<input type="checkbox" id="arm_c2">] [<input type="checkbox" id="arm_c3">] (Destroyed)</div></td></tr>
@@ -244,16 +234,12 @@
                     <input type="checkbox" id="path_bli">
                     <label for="path_bli" class="chk-label"><b style="color:#F26522;">BLINDED (Lost Light Source):</b> -20% physical checks, enemies gain +20% accuracy.</label>
                 </div>
-
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- PANE 2: INVENTORY & MAGIC (Right Page)     -->
-        <!-- ========================================== -->
+        <!-- PANE 2: INVENTORY & MAGIC -->
         <div id="pane_p2" class="pane">
             <div class="sheet-section">
-
                 <!-- Grimoire -->
                 <h3 class="section-header" style="margin-top:0;">Grimoire & Sacred Manifest</h3>
                 <div class="sheet-row">
@@ -349,49 +335,13 @@
                         }
                     </script>
                 </table>
-
-                <b style="color:#ccc;">Consumables (Track Quantities)</b>
-                <div class="sheet-row" style="margin-top: 10px;">
-                    <label style="width: 150px;">Mundane Torches (1hr):</label>
-                    <input id="cons_torches" type="number" style="width:40px;">
-                    <div class="horizontal-checks" style="margin-left: 10px;">
-                        [<input type="checkbox" id="cb_tor_1">] [<input type="checkbox" id="cb_tor_2">] [<input type="checkbox" id="cb_tor_3">] [<input type="checkbox" id="cb_tor_4">] [<input type="checkbox" id="cb_tor_5">] [<input type="checkbox" id="cb_tor_6">] [<input type="checkbox" id="cb_tor_7">] [<input type="checkbox" id="cb_tor_8">]
-                    </div>
-                </div>
-                
-                <div class="sheet-row">
-                    <label style="width: 150px;">Iron Rations (Days):</label>
-                    <input id="cons_rations" type="number" style="width:40px;">
-                    <div class="horizontal-checks" style="margin-left: 10px;">
-                        [<input type="checkbox" id="cb_rat_1">] [<input type="checkbox" id="cb_rat_2">] [<input type="checkbox" id="cb_rat_3">] [<input type="checkbox" id="cb_rat_4">] [<input type="checkbox" id="cb_rat_5">] [<input type="checkbox" id="cb_rat_6">] [<input type="checkbox" id="cb_rat_7">]
-                    </div>
-                </div>
-
-                <div class="sheet-row">
-                    <label style="width: 150px;">Antidote Flasks:</label>
-                    <input id="cons_anti" type="number" style="width:40px;">
-                    <div class="horizontal-checks" style="margin-left: 10px;">
-                        [<input type="checkbox" id="cb_ant_1">] [<input type="checkbox" id="cb_ant_2">] [<input type="checkbox" id="cb_ant_3">] [<input type="checkbox" id="cb_ant_4">]
-                    </div>
-                </div>
-
-                <div class="sheet-row">
-                    <label style="width: 150px;">Ammunition:</label>
-                    <input id="cons_ammo" type="number" style="width:40px;">
-                    <div class="horizontal-checks" style="margin-left: 10px;">
-                        [<input type="checkbox" id="cb_amo_1">] [<input type="checkbox" id="cb_amo_2">] [<input type="checkbox" id="cb_amo_3">] [<input type="checkbox" id="cb_amo_4">] [<input type="checkbox" id="cb_amo_5">] [<input type="checkbox" id="cb_amo_6">] [<input type="checkbox" id="cb_amo_7">] [<input type="checkbox" id="cb_amo_8">] [<input type="checkbox" id="cb_amo_9">] [<input type="checkbox" id="cb_amo_10">]
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- ========================================== -->
-        <!-- PANE 3: REFERENCE & EQUIPMENT STORE        -->
-        <!-- ========================================== -->
+        <!-- PANE 3: REFERENCE -->
         <div id="pane_ref" class="pane">
             <div class="sheet-section">
                 <h2 class="dossier-title">Equipment & Rules Database</h2>
-                
                 <div class="sheet-row" style="background: #111; padding: 10px; border: 1px solid #555;">
                     <label style="color:#F26522; font-size: 16px;">Select Category:</label>
                     <select id="ref_categorySelect" onchange="showRefCategory()" style="flex:2; font-weight:bold;">
@@ -406,10 +356,7 @@
                         <option value="divine">Sanctified Manifest (Prayers)</option>
                     </select>
                 </div>
-
-                <div id="store_container" style="margin-top: 15px;">
-                    <!-- Injected by JavaScript -->
-                </div>
+                <div id="store_container" style="margin-top: 15px;"></div>
             </div>
         </div>
 
