@@ -257,14 +257,11 @@ function calcSkills() {
 
 // CRYPTOGRAPHIC DICE ROLLER WIDGET LOGIC
 function rollDice(type) {
-    // Generate a cryptographically secure random number
     const randomBuffer = new Uint32Array(1);
     window.crypto.getRandomValues(randomBuffer);
     
-    // Determine the max die size
     const max = (type === 'd100') ? 100 : 10;
     
-    // Convert the massive random number to a die roll (1 to max)
     const result = (randomBuffer[0] % max) + 1;
     const units = result % 10;
     
