@@ -1,6 +1,9 @@
 body {
     background-color: #404040;
     color: #ffffff;
+    font-family: calibri, sans-serif;
+    margin: 0;
+    padding: 15px;
 }
 
 img {
@@ -11,20 +14,23 @@ select {
     width: 100%;
     background-color: #191919;
     color: #ffffff;
+    border: 1px solid #555;
+    padding: 4px;
 }
 
 input, textarea {
     width: 100%;
-    padding: 0%;
     background-color: #191919;
-    border: 0px;
+    border: 1px solid #555;
     color: #ffffff;
+    padding: 4px;
 }
 
 button {
     background-color: #191919;
     color: #ffffff;
-    border-color: #F26522;
+    border: 1px solid #F26522;
+    cursor: pointer;
 }
 
 .third {
@@ -202,4 +208,185 @@ button {
 }
 
 .suggestions {
-    border: 1px
+    border: 1px solid #555;
+    background-color: #191919;
+    color: #ffffff;
+}
+
+/* Top Navigation Bar */
+.top-nav {
+    background: #111;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #F26522;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.nav-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-group label {
+    color: #F26522;
+    font-weight: bold;
+}
+
+.action-btn {
+    background: #222;
+    color: #fff;
+    border: 1px solid #F26522;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.action-btn:hover {
+    background: #F26522;
+    color: #000;
+}
+
+/* Sheet Sections & Tables */
+.sheet-section {
+    background: #1e1e1e;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+}
+
+.sheet-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.sheet-row label {
+    font-weight: bold;
+}
+
+h2.dossier-title {
+    color: #F26522;
+    border-bottom: 2px solid #F26522;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+h3.section-header {
+    color: #F26522;
+    border-bottom: 1px solid #F26522;
+    font-family: Georgia, serif;
+    font-variant: small-caps;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.dossier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.dossier-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.dossier-table th, .dossier-table td {
+    border-bottom: 1px dashed #555;
+    padding: 4px;
+    text-align: left;
+}
+
+.dossier-table th {
+    font-weight: bold;
+    color: #ccc;
+}
+
+.store-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.store-table th {
+    background: #F26522;
+    color: #fff;
+    padding: 6px;
+    text-align: left;
+}
+
+.store-table td {
+    padding: 6px;
+    border-bottom: 1px solid #333;
+}
+
+.store-table tr:nth-child(even) { background: #1a1a1a; }
+.store-table tr:nth-child(odd) { background: #222; }
+
+.attrition-log {
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    color: #bbb;
+}
+
+.chk-label {
+    font-weight: normal !important;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.backpack-panel {
+    background: #2a2a2a;
+    padding: 10px;
+    border: 1px solid #555;
+    margin-bottom: 10px;
+}
+
+.horizontal-checks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.skill-calc {
+    font-family: monospace;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.skill-total {
+    font-weight: bold;
+    color: #F26522;
+    font-size: 14px;
+}
+
+/* Dynamic Two-Pane Flex Layout */
+.dossier-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.pane {
+    flex: 1;
+    min-width: 0;
+    display: none;
+}
