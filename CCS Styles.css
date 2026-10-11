@@ -1,0 +1,205 @@
+body {
+    background-color: #404040;
+    color: #ffffff;
+}
+
+img {
+    vertical-align: middle;
+}
+
+select {
+    width: 100%;
+    background-color: #191919;
+    color: #ffffff;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0%;
+    background-color: #191919;
+    border: 0px;
+    color: #ffffff;
+}
+
+button {
+    background-color: #191919;
+    color: #ffffff;
+    border-color: #F26522;
+}
+
+.third {
+    width: 30%;
+}
+
+.highlight {
+    background-color: #F26522;
+}
+
+.warn {
+    border: 1px solid;
+    border-color: #F26522;
+}
+
+::placeholder {
+    color: #F26522;
+}
+
+.contentitem {
+    grid-area: ci;
+}
+
+.bugtype {
+    grid-area: bt;
+}
+
+.platform {
+    grid-area: pf;
+}
+
+.contentname {
+    grid-area: cn;
+}
+
+.shortsummary {
+    grid-area: ss;
+}
+
+.playfabtitle {
+    grid-area: pt;
+}
+
+.buildinfo {
+    grid-area: bi;
+}
+
+.shortdescription {
+    grid-area: sd;
+}
+
+.fullDesc {
+    grid-area: fd;
+    width: 100%;
+}
+
+.generate {
+    grid-area: gn;
+}
+
+.save {
+    grid-area: sv;
+}
+
+.regressions {
+    grid-area: regressions;
+}
+
+.regBr {
+    grid-area: rb;
+}
+
+.regEx {
+    grid-area: rx;
+}
+
+.clientAccount {
+    grid-area: ca;
+}
+
+.bugForm {
+    display: grid;
+    grid-gap: 1%;
+    grid-template-areas:
+        'ci bt bt'
+        'cn pt .'
+        'ss ss ss'
+        'bi bi bi'
+        'sd sd sd'
+        'fd fd fd'
+        'gn sv .';
+}
+
+.formContainer {
+    grid-area: bugForm;
+    max-width: 900px;
+    height: 100%;
+}
+
+.output {
+    grid-area: output;
+    font-family: calibri;
+    font-size: 15px;
+    padding: 1%;
+    padding-top: 2%;
+    background-color: #191919;
+    color: #FFFFFF;
+    line-height: 1.5;
+}
+
+.indexTemplate {
+    font-family: calibri;
+    font-size: 12px;
+    padding: 1%;
+    height: 20%;
+    background-color: #191919;
+    color: #ffffff;
+    width: 40%;
+}
+
+.regressionTemplate {
+    font-family: calibri;
+    font-size: 13px;
+    padding: 1%;
+    height: 20%;
+    background-color: #191919;
+    color: #ffffff;
+    width: 40%;
+}
+
+.mainGridContainer {
+    display: grid;
+    grid-gap: 3%;
+    grid-template-columns: 40% 40%;
+    grid-template-areas:
+        'bugForm output';
+}
+
+.glossaryArea {
+    display: grid;
+    grid-gap: 1%;
+    grid-template-areas:
+        'gl gp gd';
+}
+
+.glossContainer {
+    grid-area: glossaryArea;
+    max-width: 300px;
+    height: 100%;
+}
+
+.regressionBrEx {
+    grid-area: grid;
+    grid-gap: 1%;
+    grid-template-areas:
+        'ju rb rx'
+        'ca . .';
+}
+
+.regressPickContainer {
+    grid-area: regressionBrEx;
+    max-width: 300px;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.additional-info {
+    margin-top: 20px;
+    font-family: calibri;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.suggestions {
+    border: 1px
