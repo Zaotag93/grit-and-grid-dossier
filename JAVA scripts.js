@@ -305,69 +305,69 @@ function showRefCategory() {
         <table class="store-table">
             <tr><th>Rank Gate</th><th>Weapon</th><th>Max Dmg</th><th>Cost</th><th>Notes</th></tr>
             <tr><td>10</td><td>Improvised (Rock/Shiv)</td><td>2</td><td>-</td><td>Shatters on any Notch (2,3,4)</td></tr>
-            <tr><td>10</td><td>Dagger / Stiletto</td><td>4</td><td>5 gp</td><td>Easily concealed</td></tr>
-            <tr><td>10</td><td>Fist-Blade / Cestus</td><td>3</td><td>12 gp</td><td>Leaves hand free, cannot be dropped</td></tr>
-            <tr><td>10</td><td>Iron Pick / Handaxe</td><td>5</td><td>8 gp</td><td>Climbing/Breaching tool</td></tr>
-            <tr><td>10</td><td>Shortsword / Machete</td><td>6</td><td>15 gp</td><td>Standard sidearm</td></tr>
-            <tr><td>10</td><td>Spear / Pitchfork</td><td>6</td><td>10 gp</td><td>Reach (Attack behind vanguard)</td></tr>
-            <tr><td>10</td><td>Mace / Warhammer</td><td>7</td><td>25 gp</td><td>Cathedral sanctioned blunt</td></tr>
-            <tr><td>8</td><td>Heavy Footman's Mace</td><td>7</td><td>30 gp</td><td>Heavy. Crushing momentum</td></tr>
-            <tr><td>8</td><td>Battleaxe / Longsword</td><td>8</td><td>40 gp</td><td>Heavy.</td></tr>
-            <tr><td>8</td><td>Guild Halberd</td><td>10</td><td>75 gp</td><td>Heavy. Reach.</td></tr>
-            <tr><td>6</td><td>Master-Forged Estoc</td><td>8</td><td>120 gp</td><td>Bypasses 1 pt of armor DR on hit</td></tr>
-            <tr><td>5</td><td>Vanguard Poleaxe</td><td>10</td><td>350 gp</td><td>Heavy. Reach. Ultimate hybrid weapon</td></tr>
+            <tr><td>10</td><td>Dagger / Stiletto</td><td>4</td><td>5 sp</td><td>Easily concealed</td></tr>
+            <tr><td>10</td><td>Fist-Blade / Cestus</td><td>3</td><td>12 sp</td><td>Leaves hand free, cannot be dropped</td></tr>
+            <tr><td>10</td><td>Iron Pick / Handaxe</td><td>5</td><td>8 sp</td><td>Climbing/Breaching tool</td></tr>
+            <tr><td>10</td><td>Shortsword / Machete</td><td>6</td><td>15 sp</td><td>Standard sidearm</td></tr>
+            <tr><td>10</td><td>Spear / Pitchfork</td><td>6</td><td>10 sp</td><td>Reach (Attack behind vanguard)</td></tr>
+            <tr><td>10</td><td>Mace / Warhammer</td><td>7</td><td>25 sp</td><td>Cathedral sanctioned blunt</td></tr>
+            <tr><td>8</td><td>Heavy Footman's Mace</td><td>7</td><td>30 sp</td><td>Heavy. Crushing momentum</td></tr>
+            <tr><td>8</td><td>Battleaxe / Longsword</td><td>8</td><td>40 sp</td><td>Heavy.</td></tr>
+            <tr><td>8</td><td>Guild Halberd</td><td>10</td><td>75 sp</td><td>Heavy. Reach.</td></tr>
+            <tr><td>6</td><td>Master-Forged Estoc</td><td>8</td><td>12 gp</td><td>Bypasses 1 pt of armor DR on hit</td></tr>
+            <tr><td>5</td><td>Vanguard Poleaxe</td><td>10</td><td>35 gp</td><td>Heavy. Reach. Ultimate hybrid weapon</td></tr>
         </table>`;
     }
     else if (cat.value === 'ranged') {
         html = `
         <table class="store-table">
             <tr><th>Rank Gate</th><th>Weapon</th><th>Max Dmg</th><th>Cost</th><th>Notes</th></tr>
-            <tr><td>10</td><td>Hunting Shortbow</td><td>5</td><td>25 gp</td><td>60 ft range. Two hands.</td></tr>
-            <tr><td>10</td><td>Composite Recurve</td><td>6</td><td>50 gp</td><td>Requires STR 40% to draw</td></tr>
-            <tr><td>10</td><td>Scavenged Crossbow</td><td>6</td><td>45 gp</td><td>1 action reload. Pierces 1 DR</td></tr>
-            <tr><td>10</td><td>Quiver (10 Arrows/Bolts)</td><td>-</td><td>5 sp</td><td>Bundled ammunition</td></tr>
-            <tr><td>8</td><td>Heavy Arbalest</td><td>8</td><td>90 gp</td><td>2 actions reload. Pierces heavy armor/shields</td></tr>
-            <tr><td>5</td><td>Siege Crossbow</td><td>9</td><td>400 gp</td><td>2 actions reload. Ignores shields entirely</td></tr>
+            <tr><td>10</td><td>Hunting Shortbow</td><td>5</td><td>25 sp</td><td>60 ft range. Two hands.</td></tr>
+            <tr><td>10</td><td>Composite Recurve</td><td>6</td><td>50 sp</td><td>Requires STR 40% to draw</td></tr>
+            <tr><td>10</td><td>Scavenged Crossbow</td><td>6</td><td>45 sp</td><td>1 action reload. Pierces 1 DR</td></tr>
+            <tr><td>10</td><td>Quiver (10 Arrows/Bolts)</td><td>-</td><td>5 cp</td><td>Bundled ammunition</td></tr>
+            <tr><td>8</td><td>Heavy Arbalest</td><td>8</td><td>9 gp</td><td>2 actions reload. Pierces heavy armor/shields</td></tr>
+            <tr><td>5</td><td>Siege Crossbow</td><td>9</td><td>40 gp</td><td>2 actions reload. Ignores shields entirely</td></tr>
         </table>`;
     }
     else if (cat.value === 'armor') {
         html = `
         <table class="store-table">
             <tr><th>Rank Gate</th><th>Armor Type</th><th>AC (DR)</th><th>Cost</th><th>Notes</th></tr>
-            <tr><td>10</td><td>Thick Rags</td><td>1</td><td>10 gp</td><td>Standard issue</td></tr>
-            <tr><td>10</td><td>Boiled Leather</td><td>2</td><td>30 gp</td><td>Reliable lightweight</td></tr>
-            <tr><td>10</td><td>Chain Mail</td><td>3</td><td>75 gp</td><td>Heavy. Penalty to sprint/swim/climb</td></tr>
-            <tr><td>8</td><td>Splint / Scale Mail</td><td>4</td><td>150 gp</td><td>Heavy. -20% to Sneak</td></tr>
-            <tr><td>7</td><td>Sapphire Cuirass</td><td>3</td><td>220 gp</td><td>Cold-iron plate. No heavy penalty</td></tr>
-            <tr><td>5</td><td>Ruby-Etched Scale</td><td>4</td><td>450 gp</td><td>Acid & rust-spore immune</td></tr>
-            <tr><td>4</td><td>Guild-Forged Plate</td><td>5</td><td>400 gp</td><td>Heavy. -20% Sneak, -10% Dodge</td></tr>
+            <tr><td>10</td><td>Thick Rags</td><td>1</td><td>10 sp</td><td>Standard issue</td></tr>
+            <tr><td>10</td><td>Boiled Leather</td><td>2</td><td>30 sp</td><td>Reliable lightweight</td></tr>
+            <tr><td>10</td><td>Chain Mail</td><td>3</td><td>75 sp</td><td>Heavy. Penalty to sprint/swim/climb</td></tr>
+            <tr><td>8</td><td>Splint / Scale Mail</td><td>4</td><td>15 gp</td><td>Heavy. -20% to Sneak</td></tr>
+            <tr><td>7</td><td>Iron-Bound Cuirass</td><td>3</td><td>22 gp</td><td>Cold-iron plate. No heavy penalty</td></tr>
+            <tr><td>5</td><td>Etched Scale Coat</td><td>4</td><td>45 gp</td><td>Acid & rust-spore immune</td></tr>
+            <tr><td>4</td><td>Guild-Forged Plate</td><td>5</td><td>40 gp</td><td>Heavy. -20% Sneak, -10% Dodge</td></tr>
         </table>`;
     }
     else if (cat.value === 'shields') {
         html = `
         <table class="store-table">
             <tr><th>Rank Gate</th><th>Shield Type</th><th>Cost</th><th>Splinter Threshold & Function</th></tr>
-            <tr><td>10</td><td>Reinforced Buckler</td><td>20 gp</td><td>Splinters if hit exceeds 3 dmg</td></tr>
-            <tr><td>10</td><td>Spiked Punching</td><td>35 gp</td><td>Functions as weapon (Max 4). Splinters > 4 dmg, degrading into a Fist-Blade / Cestus.</td></tr>
-            <tr><td>10</td><td>Wooden Target</td><td>15 gp</td><td>Splinters if hit exceeds 5 dmg</td></tr>
-            <tr><td>8</td><td>Vanguard Tower</td><td>75 gp</td><td>Massive front cover. Splinters > 12 dmg. Flammable.</td></tr>
-            <tr><td>5</td><td>Iron Tower Shield</td><td>120 gp</td><td>Indestructible Bulwark (> 16 dmg). -10% to all Dodge checks.</td></tr>
+            <tr><td>10</td><td>Reinforced Buckler</td><td>20 sp</td><td>Splinters if hit exceeds 3 dmg</td></tr>
+            <tr><td>10</td><td>Spiked Punching</td><td>35 sp</td><td>Functions as weapon (Max 4). Splinters > 4 dmg, degrading into a Fist-Blade / Cestus.</td></tr>
+            <tr><td>10</td><td>Wooden Target</td><td>15 sp</td><td>Splinters if hit exceeds 5 dmg</td></tr>
+            <tr><td>8</td><td>Vanguard Tower</td><td>75 sp</td><td>Massive front cover. Splinters > 12 dmg. Flammable.</td></tr>
+            <tr><td>5</td><td>Iron Tower Shield</td><td>12 gp</td><td>Indestructible Bulwark (> 16 dmg). -10% to all Dodge checks.</td></tr>
         </table>`;
     }
     else if (cat.value === 'logistics') {
         html = `
         <table class="store-table">
             <tr><th>Item & Unit</th><th>Cost / Slot</th><th>Field Utility</th></tr>
-            <tr><td>Iron Spikes (12)</td><td>1 gp / 1</td><td>Wedges doors shut</td></tr>
-            <tr><td>Hemp Rope (50ft)</td><td>1 gp / 1</td><td>300 lbs. Roll DEX to climb unknotted.</td></tr>
-            <tr><td>Silk Rope (50ft)</td><td>10 gp / 0.5</td><td>400 lbs. Silent and rot-resistant.</td></tr>
-            <tr><td>Caltrops (20)</td><td>1 gp / 1</td><td>1 flat dmg & halts unarmored pursuers.</td></tr>
-            <tr><td>Marbles (100)</td><td>5 sp / 1</td><td>DEX check or fall prone on smooth stone.</td></tr>
-            <tr><td>Flour Sack</td><td>2 sp / 1</td><td>Reveals invisible predators or drafts.</td></tr>
-            <tr><td>Grease Pot</td><td>3 sp / 1</td><td>Silences hinges (+20% sneak) or makes fire slick.</td></tr>
-            <tr><td>Scent Flask</td><td>2 gp / 0.5</td><td>Masks human scent (-20% to wolf tracking).</td></tr>
-            <tr><td>Grappling Hook</td><td>1 gp / 1</td><td>Secures rope over chasms (DEX check).</td></tr>
-            <tr><td>Empty Vials (3)</td><td>1 gp / 0.5</td><td>Harvests biological monster salvage.</td></tr>
+            <tr><td>Iron Spikes (12)</td><td>1 sp / 1</td><td>Wedges doors shut</td></tr>
+            <tr><td>Hemp Rope (50ft)</td><td>1 sp / 1</td><td>300 lbs. Roll DEX to climb unknotted.</td></tr>
+            <tr><td>Silk Rope (50ft)</td><td>10 sp / 0.5</td><td>400 lbs. Silent and rot-resistant.</td></tr>
+            <tr><td>Caltrops (20)</td><td>1 sp / 1</td><td>1 flat dmg & halts unarmored pursuers.</td></tr>
+            <tr><td>Marbles (100)</td><td>5 cp / 1</td><td>DEX check or fall prone on smooth stone.</td></tr>
+            <tr><td>Flour Sack</td><td>2 cp / 1</td><td>Reveals invisible predators or drafts.</td></tr>
+            <tr><td>Grease Pot</td><td>3 cp / 1</td><td>Silences hinges (+20% sneak) or makes fire slick.</td></tr>
+            <tr><td>Scent Flask</td><td>2 sp / 0.5</td><td>Masks human scent (-20% to wolf tracking).</td></tr>
+            <tr><td>Grappling Hook</td><td>1 sp / 1</td><td>Secures rope over chasms (DEX check).</td></tr>
+            <tr><td>Empty Vials (3)</td><td>1 sp / 0.5</td><td>Harvests biological monster salvage.</td></tr>
         </table>`;
     }
     else if (cat.value === 'backpack') {
