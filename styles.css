@@ -1,26 +1,7 @@
-/*
- * Grit & Grid: Clerk's Register
- * Readable CSS — original expanded formatting with the PDF-aligned improvements.
- * Every selector and property from the updated stylesheet has been preserved.
- */
-
-/* Global Theme Variables */
-
-:root {
-    color-scheme: dark;
-    --orange: #F26522;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-/* Base Page Styles */
-
 body {
     background-color: #2b2b2b;
-    color: #fff;
-    font-family: Calibri,Arial,sans-serif;
+    color: #ffffff;
+    font-family: calibri, sans-serif;
     margin: 0;
     padding: 15px;
 }
@@ -29,16 +10,20 @@ img {
     vertical-align: middle;
 }
 
-select, input, textarea {
-    background: #111;
-    color: #fff;
+select {
+    width: 100%;
+    background-color: #111;
+    color: #ffffff;
     border: 1px solid #555;
-    padding: 5px;
-    max-width: 100%;
+    padding: 4px;
 }
 
-select, input:not([type="checkbox"]), textarea {
+input, textarea {
     width: 100%;
+    background-color: #111;
+    border: 1px solid #555;
+    color: #ffffff;
+    padding: 4px;
 }
 
 input[type="checkbox"] {
@@ -47,29 +32,19 @@ input[type="checkbox"] {
     margin: 0;
 }
 
-input[readonly] {
-    background: #272727;
-}
-
 button {
-    background: #111;
-    color: #fff;
-    border: 1px solid var(--orange);
+    background-color: #111;
+    color: #ffffff;
+    border: 1px solid #F26522;
     cursor: pointer;
 }
 
-button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
-    outline: 2px solid #ff9c60;
-    outline-offset: 2px;
-}
-
 /* Top Navigation Bar */
-
 .top-nav {
     background: #111;
     padding: 10px 15px;
     margin-bottom: 15px;
-    border: 1px solid var(--orange);
+    border: 1px solid #F26522;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,7 +61,7 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 }
 
 .nav-group label {
-    color: var(--orange);
+    color: #F26522;
     font-weight: bold;
 }
 
@@ -98,19 +73,18 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 .action-btn {
     background: #222;
     color: #fff;
-    border: 1px solid var(--orange);
-    padding: 5px 9px;
+    border: 1px solid #F26522;
+    padding: 4px 8px;
     cursor: pointer;
     font-weight: bold;
 }
 
 .action-btn:hover {
-    background: var(--orange);
+    background: #F26522;
     color: #000;
 }
 
 /* Sheet Sections & Headers */
-
 .sheet-section {
     background: #1e1e1e;
     padding: 15px;
@@ -125,7 +99,6 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
     margin-bottom: 8px;
     align-items: center;
     font-size: 14px;
-    flex-wrap: wrap;
 }
 
 .sheet-row label {
@@ -133,27 +106,26 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 }
 
 h2.dossier-title {
-    color: var(--orange);
-    border-bottom: 2px solid var(--orange);
-    font-family: Georgia,serif;
+    color: #F26522;
+    border-bottom: 2px solid #F26522;
+    font-family: Georgia, serif;
     text-transform: uppercase;
     margin-top: 0;
 }
 
 h3.section-header {
-    color: var(--orange);
-    border-bottom: 1px solid var(--orange);
-    font-family: Georgia,serif;
+    color: #F26522;
+    border-bottom: 1px solid #F26522;
+    font-family: Georgia, serif;
     font-variant: small-caps;
     margin-top: 15px;
     margin-bottom: 10px;
 }
 
 /* Grids & Tables */
-
 .dossier-grid {
     display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
@@ -168,7 +140,6 @@ h3.section-header {
     border-bottom: 1px dashed #555;
     padding: 4px;
     text-align: left;
-    vertical-align: middle;
 }
 
 .dossier-table th {
@@ -184,16 +155,15 @@ h3.section-header {
 }
 
 .store-table th {
-    background: var(--orange);
+    background: #F26522;
     color: #fff;
-    padding: 7px;
+    padding: 6px;
     text-align: left;
 }
 
 .store-table td {
-    padding: 7px;
+    padding: 6px;
     border-bottom: 1px solid #333;
-    vertical-align: top;
 }
 
 .store-table tr:nth-child(even) {
@@ -204,12 +174,10 @@ h3.section-header {
     background: #222;
 }
 
-/* Logs, Checkboxes & Inventory */
-
 .attrition-log {
     font-size: 12px;
     margin-bottom: 10px;
-    line-height: 1.5;
+    line-height: 1.4;
     color: #bbb;
 }
 
@@ -231,10 +199,8 @@ h3.section-header {
     flex-direction: row;
     align-items: center;
     gap: 4px;
-    flex-wrap: wrap;
+    white-space: nowrap;
 }
-
-/* Skill Calculations */
 
 .skill-calc {
     font-family: monospace;
@@ -244,12 +210,11 @@ h3.section-header {
 
 .skill-total {
     font-weight: bold;
-    color: var(--orange);
+    color: #F26522;
     font-size: 14px;
 }
 
 /* Dynamic Two-Pane Flex Layout */
-
 .dossier-layout {
     display: flex;
     flex-direction: row;
@@ -261,117 +226,10 @@ h3.section-header {
 .pane {
     flex: 1;
     min-width: 0;
-    display: none; /* JavaScript selects exactly two panels. */
-}
-
-/* Without JavaScript, show the two default sheets (never an accidental third pane). */
-body:not(.js-ready) #pane_p1,
-body:not(.js-ready) #pane_p2 {
-    display: block;
-}
-
-/* Hide unselected panes only when the JavaScript interface is initialized. */
-.js-ready .pane {
     display: none;
 }
 
-/* New: Rule Notes & Warnings */
-
-.rule-note {
-    font-size: 12px;
-    color: #ccc;
-    margin: 6px 0 12px;
-    line-height: 1.5;
-}
-
-.rule-note strong, .emphasis {
-    color: var(--orange);
-}
-
-.rule-warning {
-    color: #ffb196;
-    font-weight: bold;
-}
-
-/* New: Responsive Reference Tables */
-
-.table-scroller {
-    overflow-x: auto;
-    max-width: 100%;
-}
-
-/* New: Skill Summary & Consumable Tracking */
-
-.skill-summary {
-    color: #ccc;
-    font-size: 12px;
-}
-
-.tally {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    margin: 3px 12px 5px 0;
-}
-
-.tally input[type="number"] {
-    width: 65px;
-}
-
-/* New: Responsive Layout for Smaller Screens */
-
-@media (max-width:1150px) {
-    .dossier-layout {
-        gap: 10px;
-    }
-    .dossier-grid {
-        grid-template-columns: 1fr;
-    }
-    .dossier-table {
-        font-size: 12px;
-    }
-}
-
-/* New: Responsive Layout for Smaller Screens */
-
-@media (max-width:800px) {
-    .top-nav {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .dossier-layout {
-        flex-direction: column;
-    }
-    .pane {
-        width: 100%;
-    }
-    .nav-group {
-        justify-content: flex-start;
-    }
-}
-
-/* New: Dice Results and Validation Warnings */
-
-#desktop_dice_result {
-    width: 300px !important;
-    max-width: 100%;
-    white-space: normal;
-    overflow-wrap: anywhere;
-}
-
-#spell_page_summary.rule-warning, #training_summary.rule-warning {
-    color: #ffc4a6;
-}
-
-/* Numeric Field Legibility (Prevent Spinners from Obscuring Values) */
-
-input[type="number"] {
-    appearance: textfield;
-    -moz-appearance: textfield;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* SAFE FALLBACK: show your original two character pages if JS fails to load. */
+#pane_p1, #pane_p2 {
+    display: block;
 }
