@@ -199,6 +199,7 @@ function updatePanes(changedSide) {
         else right.value=left.value==='p1'?'p2':'p1';
     }
     currentLeft=left.value; currentRight=right.value;
+    document.body.classList.add('js-ready');
     for (const p of ['p1','p2','ref']) el('pane_'+p).style.display='none';
     const l=el('pane_'+left.value),r=el('pane_'+right.value);
     l.style.display='block'; l.style.order=1;
@@ -243,6 +244,10 @@ function migrateLegacyData(data) {
     // Original JS stored background bonuses inside bon_*; remove only once.
     if(!data || Number(data.__sheetVersion)>=2) return data;
     const copy={...data,__sheetVersion:2};
+    // Old phone HTML used cons_anti, before aligning with desktop's cons_antidote.
+    if (copy.cons_antidote===undefined && copy.cons_anti!==undefined) {
+        copy.cons_antidote=copy.cons_anti;
+    }
     const bonuses=PROFESSIONS[copy.char_prof_select]?.bonuses||{};
     for(const [id,n] of Object.entries(bonuses)) {
         const k='bon_'+id;
@@ -490,15 +495,15 @@ function createDossierRows() {
     const cantripRows=el('cantrip_rows');
     const grimoireRows=el('grimoire_rows');
     const inventoryRows=el('inventory_rows');
-    if(cantripRows) cantripRows.innerHTML=Array.from({length:8},(_,index)=>{
+    if(cantripRows && !cantripRows.children.length) cantripRows.innerHTML=Array.from({length:8},(_,index)=>{
         const i=index+1;
         return `<tr><td>${i}.</td><td><input id="can${i}_n" style="width:90%;"></td><td><input id="can${i}_f" style="width:90%;"></td><td><input id="can${i}_e" style="width:95%;"></td></tr>`;
     }).join('');
-    if(grimoireRows) grimoireRows.innerHTML=Array.from({length:30},(_,index)=>{
+    if(grimoireRows && !grimoireRows.children.length) grimoireRows.innerHTML=Array.from({length:30},(_,index)=>{
         const i=index+1;
         return `<tr id="grim_row_${i}"><td>${i}.</td><td><input id="lib${i}_l" type="number" min="0" max="3" oninput="updateSpellPages()" style="width:65px;"></td><td><input id="lib${i}_n" style="width:90%;" oninput="updateSpellPages()"></td><td><input id="lib${i}_p" style="width:65px;" readonly></td><td><input id="lib${i}_s" style="width:95%;"></td></tr>`;
     }).join('');
-    if(inventoryRows) inventoryRows.innerHTML=Array.from({length:12},(_,index)=>{
+    if(inventoryRows && !inventoryRows.children.length) inventoryRows.innerHTML=Array.from({length:12},(_,index)=>{
         const i=index+1;
         return `<tr><td>${i}.</td><td><input id="inv_s${i}" style="width:95%;"></td></tr>`;
     }).join('');
@@ -506,8 +511,19 @@ function createDossierRows() {
 
 window.addEventListener('DOMContentLoaded',()=>{
     createDossierRows();
-    fillCustomOptions();switchCharacterSlot();updatePanes('none');showRefCategory();
-    for(const i of ['arm_d','arm_c1','arm_c2','arm_c3','path_cog']) el(i)?.addEventListener('change',updateArmorDR);
-    for(let i=1;i<=5;i++)el('water_'+i)?.addEventListener('change',updateWaterskinCount);
-    el('char_rank').addEventListener('change',calcSkills);
+    try {
+        fillCustomOptions();
+        switchCharacterSlot();
+        updatePanes('none');
+        showRefCategory();
+        for (const i of ['arm_d','arm_c1','arm_c2','arm_c3','path_cog']) el(i)?.addEventListener('change',updateArmorDR);
+        for (let i=1;i<=5;i++) el('water_'+i)?.addEventListener('change',updateWaterskinCount);
+        el('char_rank')?.addEventListener('change',calcSkills);
+    } catch(error) {
+        console.error('Unable to initialize desktop sheet; displaying all content:',error);
+        document.body.classList.remove('js-ready');
+        for (const id of ['pane_p1','pane_p2','pane_ref']) el(id)?.style.removeProperty('display');
+        const banner=el('legacy_notice');
+        if(banner) banner.textContent='Automatic controls could not initialize. Your full sheet remains displayed; check that scripts.js is next to index.html.';
+    }
 });
