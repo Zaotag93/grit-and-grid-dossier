@@ -191,6 +191,34 @@ let lastDiscipline='none', lastSlotCapacity=0;
 const el = id => document.getElementById(id);
 const asNum = id => Number(el(id)?.value) || 0;
 
+/* Storage must never block the visible interface or reference tables.
+   If a sandbox/browser blocks localStorage, navigation still works.
+   Saving is explicitly reported unavailable; no false success is shown. */
+let storageUnavailable = false;
+function reportStorageBlocked() {
+    storageUnavailable = true;
+    const note = el('storage_status');
+    if (note) {
+        note.hidden = false;
+        note.textContent = 'This browser is blocking local character storage. Dropdowns and reference tables still work, but this session cannot save characters. Open the site where browser storage is permitted to save.';
+    }
+}
+const GGStore = {
+    getItem(key) {
+        try { return window.localStorage.getItem(key); }
+        catch (error) { reportStorageBlocked(); return null; }
+    },
+    setItem(key,value) {
+        try { window.localStorage.setItem(key,value); return true; }
+        catch (error) { reportStorageBlocked(); return false; }
+    },
+    removeItem(key) {
+        try { window.localStorage.removeItem(key); return true; }
+        catch (error) { reportStorageBlocked(); return false; }
+    }
+};
+
+
 function updatePanes(changedSide) {
     const left=el('leftPaneSelect'), right=el('rightPaneSelect');
     if (left.value===right.value) {
@@ -219,7 +247,10 @@ function readCharacterData() {
 function saveCharacterSlot() {
     const key=getActiveSlotKey();
     try {
-        localStorage.setItem('gritGrid_'+key,JSON.stringify(readCharacterData()));
+        if (!GGStore.setItem('gritGrid_'+key,JSON.stringify(readCharacterData()))) {
+            alert('Character not saved: this browser does not permit local storage.');
+            return;
+        }
         alert('Contractor dossier saved to '+el('charSlotSelect').selectedOptions[0].text+'.');
     } catch(err) {alert('Unable to save this dossier: '+err.message);}
 }
@@ -261,7 +292,7 @@ function migrateLegacyData(data) {
 function switchCharacterSlot() {
     const key=getActiveSlotKey();
     defaultFields();
-    const raw=localStorage.getItem('gritGrid_'+key);
+    const raw=GGStore.getItem('gritGrid_'+key);
     if(raw) {
         try {
             const d=migrateLegacyData(JSON.parse(raw));
@@ -286,29 +317,33 @@ function switchCharacterSlot() {
 }
 function createNewCharacterSlot() {
     if(confirm('Permanently clear this roster slot?')) {
-        localStorage.removeItem('gritGrid_'+getActiveSlotKey());switchCharacterSlot();alert('Slot cleared.');
+        if (!GGStore.removeItem('gritGrid_'+getActiveSlotKey())) {
+            alert('Cannot clear a saved slot while browser storage is blocked.');
+            return;
+        }
+        switchCharacterSlot();alert('Slot cleared.');
     }
 }
 function moveSlot(dest,reason) {
     const from=getActiveSlotKey();
     if(from===dest) return alert('Already in that slot.');
-    const data=localStorage.getItem('gritGrid_'+from);
+    const data=GGStore.getItem('gritGrid_'+from);
     if(!data) return alert('Save the current character first.');
     if(!confirm(reason+' This moves the saved dossier. Continue?')) return;
-    if(localStorage.getItem('gritGrid_'+dest) && !confirm('Destination contains a saved character. Overwrite it?')) return;
-    localStorage.setItem('gritGrid_'+dest,data);
-    localStorage.removeItem('gritGrid_'+from);
+    if(GGStore.getItem('gritGrid_'+dest) && !confirm('Destination contains a saved character. Overwrite it?')) return;
+    if (!GGStore.setItem('gritGrid_'+dest,data)) { alert('Unable to move character: browser storage is blocked.'); return; }
+    if (!GGStore.removeItem('gritGrid_'+from)) { alert('Could not remove the original slot; verify the roster before continuing.'); return; }
     el('charSlotSelect').value=dest;switchCharacterSlot();
 }
 function setAsActive() {moveSlot('char1','Move to Active Contractor?');}
 function backupCharacter() {
     if(['char2','char3','char4','char5'].includes(getActiveSlotKey())) return alert('Already in Backup.');
-    const dest=[2,3,4,5].map(n=>'char'+n).find(k=>!localStorage.getItem('gritGrid_'+k));
+    const dest=[2,3,4,5].map(n=>'char'+n).find(k=>!GGStore.getItem('gritGrid_'+k));
     if(!dest) return alert('Backup roster is full.');moveSlot(dest,'Move to Backup roster?');
 }
 function archiveCharacter() {
     if(['char8','char9','char10'].includes(getActiveSlotKey())) return alert('Already in Morgue.');
-    const dest=[8,9,10].map(n=>'char'+n).find(k=>!localStorage.getItem('gritGrid_'+k));
+    const dest=[8,9,10].map(n=>'char'+n).find(k=>!GGStore.getItem('gritGrid_'+k));
     if(!dest) return alert('Morgue roster is full.');moveSlot(dest,'Send to Morgue?');
 }
 function fillCustomOptions() {
@@ -509,21 +544,15 @@ function createDossierRows() {
     }).join('');
 }
 
-window.addEventListener('DOMContentLoaded',()=>{
-    createDossierRows();
-    try {
-        fillCustomOptions();
-        switchCharacterSlot();
-        updatePanes('none');
-        showRefCategory();
-        for (const i of ['arm_d','arm_c1','arm_c2','arm_c3','path_cog']) el(i)?.addEventListener('change',updateArmorDR);
-        for (let i=1;i<=5;i++) el('water_'+i)?.addEventListener('change',updateWaterskinCount);
-        el('char_rank')?.addEventListener('change',calcSkills);
-    } catch(error) {
-        console.error('Unable to initialize desktop sheet; displaying all content:',error);
-        document.body.classList.remove('js-ready');
-        for (const id of ['pane_p1','pane_p2','pane_ref']) el(id)?.style.removeProperty('display');
-        const banner=el('legacy_notice');
-        if(banner) banner.textContent='Automatic controls could not initialize. Your full sheet remains displayed; check that scripts.js is next to index.html.';
-    }
+window.addEventListener('DOMContentLoaded', () => {
+    const scriptStatus = el('script_status');
+    if (scriptStatus) scriptStatus.hidden = true;
+    try { createDossierRows(); } catch (error) { console.error('Could not create some character fields:', error); }
+    try { fillCustomOptions(); switchCharacterSlot(); } catch (error) { console.error('Character initialization issue:', error); }
+    // Pane switching and rules category population must run regardless of storage errors.
+    try { updatePanes('none'); } catch (error) { console.error('Pane initialization issue:', error); }
+    try { showRefCategory(); } catch (error) { console.error('Reference initialization issue:', error); }
+    for (const id of ['arm_d','arm_c1','arm_c2','arm_c3','path_cog']) el(id)?.addEventListener('change', updateArmorDR);
+    for (let i=1; i<=5; i++) el('water_'+i)?.addEventListener('change', updateWaterskinCount);
+    el('char_rank')?.addEventListener('change', calcSkills);
 });
