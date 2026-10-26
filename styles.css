@@ -261,7 +261,13 @@ h3.section-header {
 .pane {
     flex: 1;
     min-width: 0;
-    display: block; /* Accessible fallback if scripts.js is absent or fails. */
+    display: none; /* JavaScript selects exactly two panels. */
+}
+
+/* Without JavaScript, show the two default sheets (never an accidental third pane). */
+body:not(.js-ready) #pane_p1,
+body:not(.js-ready) #pane_p2 {
+    display: block;
 }
 
 /* Hide unselected panes only when the JavaScript interface is initialized. */
