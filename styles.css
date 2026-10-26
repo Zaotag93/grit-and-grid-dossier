@@ -261,6 +261,11 @@ h3.section-header {
 .pane {
     flex: 1;
     min-width: 0;
+    display: block; /* Accessible fallback if scripts.js is absent or fails. */
+}
+
+/* Hide unselected panes only when the JavaScript interface is initialized. */
+.js-ready .pane {
     display: none;
 }
 
@@ -350,4 +355,17 @@ h3.section-header {
 
 #spell_page_summary.rule-warning, #training_summary.rule-warning {
     color: #ffc4a6;
+}
+
+/* Numeric Field Legibility (Prevent Spinners from Obscuring Values) */
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
